@@ -22,3 +22,8 @@ class TestMoney(unittest.TestCase):
         self.assertEqual(expectedMoneyAfterDivision.currency,
                          actualMoneyAfterDivision.currency)
 
+    def testAddMoneyDirectly(self):
+        self.assertEqual(Money(15, "USD"), Money(5, "USD") + Money(10, "USD"))
+        self.assertEqual(Money(15, "USD"), Money(10, "USD") + Money(5, "USD"))
+        self.assertEqual(None, Money(5, "USD") + Money(10, "EUR"))
+        self.assertEqual(None, Money(5, "USD") + None)
